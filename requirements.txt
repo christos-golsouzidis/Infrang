@@ -1,0 +1,13 @@
+torch
+markitdown
+markdownify
+pdfminer.six
+qdrant-client
+pyspellchecker
+transformers
+groq
+python-dotenv
+sentencepiece
+fastembed
+fastapi
+uvicorn
