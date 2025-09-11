@@ -428,7 +428,7 @@ This time you will get a response like this:
 **Output:**  
 > Decorators are a flexible way to modify or extend the behavior of functions or methods in Python, without changing their actual code. They are essentially functions that take another function as an argument and return a new function with enhanced functionality.  
 
-To aquire additional informations about the generated answer add the `-v` switch:
+To acquire additional informations about the generated answer add the `-v` switch:
 ```bash
 python infrang.py python_101 -q "What is a decorator?" -v
 ```  
