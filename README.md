@@ -609,7 +609,7 @@ Replace `<my-base-path>` with your **absolute** base path.
 E.g. use this mounting line for Linux: `-v /home/user/my_data:/base:Z`  
 or for Windows: `-v C:\Users\user\data:/base`.
 
-**Important Note on Paths:** The path inside the container (`/base`) becomes the root for all API calls. For example, if you mount your local folder `/home/john/Documents` to `/base`, then to process the documents located at `/home/john/Documents/my_kb`, you would use the path **`/base/my_kb`** in your API requests (e.g.
+**Important note on paths:** The path inside the container (`/base`) becomes the root for all API calls. For example, if you mount your local folder `/home/john/Documents` to `/base`, then to process the documents located at `/home/john/Documents/my_kb`, you would use the path **`/base/my_kb`** in your API requests (e.g.
 `curl -X POST "http://127.0.0.1:7456/collections/python101//base/my_kb"`).
 
 
