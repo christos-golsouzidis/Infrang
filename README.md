@@ -71,8 +71,6 @@ cd infrang
 * `infrang-api.py`: It contains the **REST API** implemented with FastAPI.
 * `requirements.txt`: All dependencies are contained here.
 
-**Note**: Make sure to have `git` installed if you follow the first method.
-
 ### 5.2 Create and activate a virtual environment
 
 To avoid conflicts with system-wide Python packages, create and activate a virtual environment:
