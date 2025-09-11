@@ -70,6 +70,8 @@ cd infrang
 * `infrang.py`: It contains the **CLI version**.
 * `infrang-api.py`: It contains the **REST API** implemented with FastAPI.
 * `requirements.txt`: All dependencies are contained here.
+* `Dockerfile`: The instructions for building the image for the containerization.
+* `infrang-podman.sh`: A bash script for automating the containerization and execution of Infrang.
 
 ### 5.2 Create and activate a virtual environment
 
