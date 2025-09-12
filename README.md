@@ -581,7 +581,7 @@ or Docker:
 docker volume create infrang-data
 ```
 
-### 7.4 Run the container
+### 7.4 Build and run the container
 
 Ensure you have created and configured your `.env` file for the application's environment variables.
 
@@ -609,13 +609,43 @@ Replace `<my-base-path>` with your **absolute** base path.
 E.g. use this mounting line for Linux: `-v /home/user/my_data:/base:Z`  
 or for Windows: `-v C:\Users\user\data:/base`.
 
-**Important note on paths:** The path inside the container (`/base`) becomes the root for all API calls. For example, if you mount your local folder `/home/john/Documents` to `/base`, then to process the documents located at `/home/john/Documents/my_kb`, you would use the path **`/base/my_kb`** in your API requests (e.g.
+**Important note on paths:** The path inside the container (`/base`) becomes the root for all API calls. For example, if you mount your local folder `/home/john_doe/Documents` to `/base`, then to process the documents located at `/home/john_doe/Documents/my_kb`, you would use the path **`/base/my_kb`** in your API requests (e.g.
 `curl -X POST "http://127.0.0.1:7456/collections/python101//base/my_kb"`).
 
+### 7.5 Stop the container
 
-### 7.5 Automate the process
+To stop the container write:
+```bash
+podman stop infrang-api
+```
+Replace `podman` with docker if you are using Docker.
 
-For Linux users, the bash script `infrang-podman.sh` automates the process even further. By running the script, you can have a running container. So this automates the steps 7.2, 7.3 and 7.4. You still have to stpo the container with `podman stop infrang-api` at the end.
+### 7.6 Automate the process
+
+For Linux users, the bash script `infrang-podman.sh` automates the process even further. By running the script, you can have a running container. So this automates the steps 7.2, 7.3 and 7.4. You still have to stop the container with `podman stop infrang-api` at the end.
+  
+#### Build / run the container:
+
+To build the image, the volume and the container and then to run the container execute:  
+```bash
+./infrang-podman.sh /home/john_doe/Documents
+```
+This argument is used when the container needs to be built. If the container exists, you don't have to specify an argument, since running the script would result in executing `podman start infrang-api`.  
+
+#### Test the container
+Let's test the container by sending:
+```bash
+curl -X GET "http://127.0.0.1:7456/"
+```
+You should get the version of the software.  
+
+To create a collection from the knowledge base in `/home/john_doe/Documents/my_kb` send this request:  
+```bash
+curl -X POST "http://127.0.0.1:7456/collections/python101//base/my_kb"`).
+```
+
+Note that we didn't use `/home/john_doe/Documents/my_kb` in the `curl` command.
+This is because we mounted `/home/john_doe/Documents` to `/base`.
 
 ## 8 Contributing
 
